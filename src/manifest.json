@@ -1,0 +1,32 @@
+{
+    "manifest_version": 2,
+    "name": "Anime Watcher",
+    "version": "0.1.0",
+    "description": "Stay on top of your favorite Anime. Watch new episodes or resume from where you left off. For people who watch anime. For free. Forever.",
+    "browser_action": {
+        "default_title": "Anime Watcher",
+        "default_popup": "popup.html"
+    },
+    "author": "Rohith Reddy Kumbharkar",
+    "background": {
+        "scripts": [
+            "bg.js"
+        ],
+        "persistent": false
+    },
+    "content_scripts": [
+        {
+            "run_at": "document_start",
+            "matches": [
+                "http://kissanime.ru/Anime/*"
+            ],
+            "js": [
+                "content.js"
+            ]
+        }
+    ],
+    "permissions": [
+        "storage",
+        "activeTab"
+    ]
+}

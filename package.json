@@ -1,0 +1,16 @@
+{
+  "name": "aniwatch",
+  "version": "0.1.0",
+  "private": true,
+  "main": "index.js",
+  "author": "Rohith Reddy Kumbharkar <rohith@users.noreply.github.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "del": "^3.0.0",
+    "gulp": "^3.9.1",
+    "gulp-babel": "^7.0.1",
+    "gulp-stylus": "^2.7.0"
+  }
+}
