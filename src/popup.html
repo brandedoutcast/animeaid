@@ -5,12 +5,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Anime Watcher</title>
+    <title>Animeaid</title>
 
     <link rel="stylesheet" href="popup.css">
 </head>
 
 <body>
+    <div id="app">
+        <div class="controls">
+            <h2>Animeaid</h2>
+            <div>
+                <a id="clear" title="Delete all anime from the watchlist">
+                    <i class="icon-trash"></i>
+                </a>
+                <a id="refresh" title="Check for new episodes">
+                    <i class="icon-refresh"></i>
+                </a>
+            </div>
+        </div>
+        <div id="collection"></div>
+        <div id="about">
+            <div>For code, bugs &amp; feature requests visit <a href="https://github.com/rohith/animeaid">GitHub</a></div>
+            <div>Made with &lt;3 by <a href="https://github.com/rohith">Rohith</a></div>
+        </div>
+    </div>
 
     <script src="popup.js"></script>
 </body>

@@ -1,18 +1,21 @@
 {
     "manifest_version": 2,
-    "name": "Anime Watcher",
-    "version": "0.1.0",
-    "description": "Stay on top of your favorite Anime. Watch new episodes or resume from where you left off. For people who watch anime. For free. Forever.",
-    "browser_action": {
-        "default_title": "Anime Watcher",
-        "default_popup": "popup.html"
-    },
+    "name": "Animeaid",
+    "version": "0.1.1",
+    "description": "Check for newly released episodes from your favourite Anime. For those who watch anime. For free. Forever.",
     "author": "Rohith Reddy Kumbharkar",
+    "icons": {
+        "128": "resources/icon-128.png"
+    },
     "background": {
         "scripts": [
             "bg.js"
         ],
         "persistent": false
+    },
+    "browser_action": {
+        "default_title": "View list of watching Anime",
+        "default_popup": "popup.html"
     },
     "content_scripts": [
         {
@@ -27,6 +30,6 @@
     ],
     "permissions": [
         "storage",
-        "activeTab"
+        "tabs"
     ]
 }

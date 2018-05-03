@@ -1,10 +1,18 @@
 {
   "name": "aniwatch",
+  "description": "A browser extension to check for new episodes from your favourite Anime",
   "version": "0.1.0",
   "private": true,
-  "main": "index.js",
   "author": "Rohith Reddy Kumbharkar <rohith@users.noreply.github.com>",
   "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/rohith/animeaid/issues"
+  },
+  "homepage": "https://github.com/rohith/animeaid",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rohith/animeaid"
+  },
   "devDependencies": {
     "babel-core": "^6.26.0",
     "babel-preset-env": "^1.6.1",

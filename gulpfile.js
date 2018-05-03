@@ -24,10 +24,16 @@ gulp.task("copy", function () {
         .pipe(gulp.dest("dist"))
 })
 
+gulp.task("resources", function () {
+    return gulp.src("src/resources/**/*")
+        .pipe(gulp.dest("dist/resources"))
+})
+
 gulp.task("watch", function () {
     gulp.watch("src/*.styl", ["styles"])
     gulp.watch("src/*.js", ["scripts"])
     gulp.watch(["src/manifest.json", "src/*.html"], ["copy"])
+    gulp.watch("src/resources/**/*", ["resources"])
 })
 
-gulp.task("default", ["clean", "styles", "scripts", "copy", "watch"])
+gulp.task("default", ["clean", "styles", "scripts", "copy", "resources", "watch"])
