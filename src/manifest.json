@@ -1,7 +1,7 @@
 {
     "manifest_version": 2,
     "name": "Animeaid",
-    "version": "0.1.2",
+    "version": "0.1.3",
     "description": "Keep track of the episodes & stay on top of your favorite Anime. Fully automated & one tap refresh for new episode alerts",
     "author": "Rohith Reddy Kumbharkar",
     "icons": {

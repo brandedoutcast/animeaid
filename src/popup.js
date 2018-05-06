@@ -61,7 +61,7 @@ class Popup {
 
             this.addEpisodeDetails(episodesElement, anime.watchedEpisode, "Previous")
             this.addEpisodeDetails(episodesElement, anime.nextEpisode, "Next")
-            this.addEpisodeDetails(episodesElement, anime.latestEpisode, "Last")
+            this.addEpisodeDetails(episodesElement, anime.latestEpisode, "Latest")
 
             item.appendChild(episodesElement)
         }

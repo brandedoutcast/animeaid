@@ -1,6 +1,6 @@
 {
   "name": "aniwatch",
-  "description": "A browser extension to check for new episodes from your favourite Anime",
+  "description": "A browser extension to keep track of episodes from your favourite Anime",
   "version": "0.1.0",
   "private": true,
   "author": "Rohith Reddy Kumbharkar <rohith@users.noreply.github.com>",
