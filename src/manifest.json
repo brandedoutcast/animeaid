@@ -1,8 +1,8 @@
 {
     "manifest_version": 2,
     "name": "Animeaid",
-    "version": "0.1.1",
-    "description": "Check for newly released episodes from your favourite Anime. For those who watch anime. For free. Forever.",
+    "version": "0.1.2",
+    "description": "Keep track of the episodes & stay on top of your favorite Anime. Fully automated & one tap refresh for new episode alerts",
     "author": "Rohith Reddy Kumbharkar",
     "icons": {
         "128": "resources/icon-128.png"
@@ -14,7 +14,7 @@
         "persistent": false
     },
     "browser_action": {
-        "default_title": "View list of watching Anime",
+        "default_title": "View Anime Watchlist",
         "default_popup": "popup.html"
     },
     "content_scripts": [

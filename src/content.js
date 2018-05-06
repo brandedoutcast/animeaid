@@ -12,11 +12,15 @@ class KissAnime {
         this.name = this.url.split("/").filter(String)[3].replace(/-/gi, " ").trim()
         this.latestEpisodeElement = document.querySelector(".listing > tbody > tr:nth-child(3) > td:nth-child(1) > a")
         this.firstEpisodeElement = document.querySelector(".listing > tbody > tr:last-child > td:nth-child(1) > a")
-        this.nextEpisodeElement = this.fetchNextEpisodeElement()
+        this.nextEpisodeElement = this.fetchNextEpisodeElementFromArrow()
         this.episodeNumberRegex = /(?:episode[\s|-])(\d{3})/i
     }
 
-    fetchNextEpisodeElement() {
+    fetchNextEpisodeFromSeries(episodeDiff) {
+        return document.querySelector(`.listing > tbody > tr:nth-child(${episodeDiff + 2}) > td:nth-child(1) > a`)
+    }
+
+    fetchNextEpisodeElementFromArrow() {
         const nextArrowElement = document.getElementById("btnNext")
         return nextArrowElement ? nextArrowElement.parentElement : null
     }
@@ -104,21 +108,42 @@ class KissAnime {
     }
 
     updateLatestEpisode(animeInfo) {
+        const latestEpisodeUrl = this.latestEpisodeElement.getAttribute("href")
+
         animeInfo.latestEpisode = {
-            number: parseInt(this.latestEpisodeElement.textContent.trim().match(this.episodeNumberRegex)[1]),
-            url: this.url.replace(/\/Anime.+/gi, "") + this.latestEpisodeElement.getAttribute("href")
+            number: parseInt(latestEpisodeUrl.match(this.episodeNumberRegex)[1]),
+            url: this.url.replace(/\/Anime.+/gi, "") + latestEpisodeUrl
+        }
+
+        if (!animeInfo.nextEpisode) {
+            const episodeDiff = animeInfo.latestEpisode.number - animeInfo.watchedEpisode.number
+            if (episodeDiff + 2 >= 3) {
+                const nextEpisodeElement = this.fetchNextEpisodeFromSeries(episodeDiff)
+
+                if (nextEpisodeElement) {
+                    const nextEpisodeUrl = nextEpisodeElement.getAttribute("href")
+
+                    animeInfo.nextEpisode = {
+                        number: parseInt(nextEpisodeUrl.match(this.episodeNumberRegex)[1]),
+                        url: this.url.replace(/\/Anime.+/gi, "") + nextEpisodeUrl
+                    }
+                }
+            }
         }
     }
 
     addWithLatestEpisode(animeInfo) {
+        const latestEpisodeUrl = this.latestEpisodeElement.getAttribute("href")
+        const nextEpisodeUrl = this.firstEpisodeElement.getAttribute("href")
+
         animeInfo.latestEpisode = {
-            number: parseInt(this.latestEpisodeElement.textContent.trim().match(this.episodeNumberRegex)[1]),
-            url: this.url.replace(/\/Anime.+/gi, "") + this.latestEpisodeElement.getAttribute("href")
+            number: parseInt(latestEpisodeUrl.match(this.episodeNumberRegex)[1]),
+            url: this.url.replace(/\/Anime.+/gi, "") + latestEpisodeUrl
         }
 
         animeInfo.nextEpisode = {
-            number: parseInt(this.firstEpisodeElement.textContent.trim().match(this.episodeNumberRegex)[1]),
-            url: this.url.replace(/\/Anime.+/gi, "") + this.firstEpisodeElement.getAttribute("href")
+            number: parseInt(nextEpisodeUrl.match(this.episodeNumberRegex)[1]),
+            url: this.url.replace(/\/Anime.+/gi, "") + nextEpisodeUrl
         }
     }
 }

@@ -37,8 +37,8 @@ class Popup {
         item.classList.add("item")
         header.classList.add("header")
         seriesAnchor.classList.add("opentab")
-        seriesAnchor.setAttribute("title", "Open Anime in New Tab")
-        removeAnchor.setAttribute("title", `Delete ${anime.name} from the watchlist`)
+        seriesAnchor.setAttribute("title", `Open ${anime.name} in New Tab`)
+        removeAnchor.setAttribute("title", `Delete ${anime.name} from the Watchlist`)
         removeIcon.classList.add("icon-remove")
 
         seriesAnchor.setAttribute("href", anime.seriesURL)
